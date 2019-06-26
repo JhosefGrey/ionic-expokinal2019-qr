@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let pro of productos"> 
+    <ion-card-header>
+        <ion-card-subtitle>Q.{{pro.precio}}</ion-card-subtitle>
+      <ion-card-title>{{pro.nombreProducto}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-button color="tertiary" (click)="encode(pro._id)">Codigo QR</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

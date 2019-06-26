@@ -1,0 +1,17 @@
+
+<ion-content padding center text-center>
+    <ion-title>Login</ion-title>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+    <ion-list>
+        <ion-item>
+          <ion-input placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="full" type="submit">Log In</ion-button>
+      <!-- <ion-button routerLink="/registro" routerLinkActive="active" expand="full">Registrar</ion-button> -->
+    </form>
+  
+</ion-content>
