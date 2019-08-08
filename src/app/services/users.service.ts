@@ -29,14 +29,14 @@ export class UsersService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', token);
         let params = JSON.stringify(producto);
         console.log(headers)
-        return this._http.put(this.url+'productoVendido/'+idProducto,params,{headers: headers} );
+        return this._http.put(this.url+'/productoVendido/'+idProducto,params,{headers: headers} );
     }
 
     register(user: User): Observable<any>{
         let params = JSON.stringify(user);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         
-        return this._http.post(this.url+'registrar', params, {headers: headers});
+        return this._http.post(this.url+'/registrar', params, {headers: headers});
     }
 
     login(user, gettoken = null): Observable<any>{
@@ -49,7 +49,7 @@ export class UsersService{
         console.log(params)
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.post(this.url+'login', params, {headers: headers});
+        return this._http.post(this.url+'/login', params, {headers: headers});
     }
 
     getIdentity(){
@@ -82,20 +82,20 @@ export class UsersService{
         let params = JSON.stringify(user);
         let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization', this.getToken());
 
-        return this._http.put(this.url+'update-user/'+user._id, params, {headers: headers});
+        return this._http.put(this.url+'/update-user/'+user._id, params, {headers: headers});
     }
 
     getUsers(page = null):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization', this.getToken());
 
-        return this._http.get(this.url+'users/'+page, {headers: headers});
+        return this._http.get(this.url+'/users/'+page, {headers: headers});
     }
 
 
     getUser(id):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization', this.getToken());
 
-        return this._http.get(this.url+'user/'+id, {headers: headers});
+        return this._http.get(this.url+'/user/'+id, {headers: headers});
     }
 
 

@@ -1,10 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-back-button slot="start" routerLink="/login" routerLinkActive="active"></ion-back-button>
-    <ion-title>registro</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-
+<ion-content  center text-center>
+  <ion-title>Registrarse</ion-title>
+  <ion-spinner color="primary" *ngIf="loading" name="circles"></ion-spinner>
+  <form #registroForm="ngForm" (ngSubmit)="register()">
+  <ion-list>
+      <ion-item>
+          <ion-input placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-input placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input type="password" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit" (click)="activarCarga()">Registrarse</ion-button>
+  </form>
 </ion-content>
