@@ -24,7 +24,12 @@ const routes: Routes = [
     {
       path: 'productos',
       loadChildren:  '../productos/productos.module#ProductosPageModule'
+    },
+    {
+      path: 'conferencias',
+      loadChildren:  '../conferencias/conferencias.module#ConferenciasPageModule'
     }
+
 
     ]
   }

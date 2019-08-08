@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
       cantidad: 0,
       precioIndividual: 0,
       totalProducto: 0
-    }], 0, "");
+    }], 0,"");
   }
  
   
@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
       this._userService.login(this.user, 'true').subscribe(
         response=>{
           
-          this.token = response.token;
+          this.token =JSON.stringify(response.token);   
           if(this.token.length <= 0){
             this.status = 'error'
           }else{
@@ -75,6 +75,7 @@ export class LoginPage implements OnInit {
           }else{
             sessionStorage.setItem('identity', JSON.stringify(this.identity));
             this.getToken();
+            sessionStorage.setItem('token', JSON.stringify(this.token));
             this.status = 'ok';
             
           }

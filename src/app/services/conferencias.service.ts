@@ -14,10 +14,15 @@ export class ConferenciaService {
     constructor(public _http: HttpClient, public _userService: UsersService) {
         this.url = GLOBAL.url;
     }
-    scanSpeak(id):Observable<any>{        
-        let headers = new HttpHeaders().set('Content-type','application/json').set('Authorization', this._userService.getToken());
-
-        return this._http.put(this.url + '/charla/check/'+id, null ,{headers: headers});
+    scanSpeak(token, conferencia:Conferencias ,id) :Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', token);
+        let params = JSON.stringify(conferencia);
+        console.log(headers)
+        return this._http.put(this.url+'check/'+id,params,{headers: headers} );
     }
+    getConferences(): Observable<any> {
+        let headers = new HttpHeaders().set('Content-type', 'application/json');
 
+        return this._http.get(this.url+'charlas', { headers: headers })
+    }
 }

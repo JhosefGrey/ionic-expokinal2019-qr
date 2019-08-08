@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>conferencias</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>Conferencias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <!-- aqui en el card pones un ngFor para que se listen las conferencias -->
+  <ion-card *ngFor="let conferencia of conferencias">
+      <img src="https://static.platzi.com/media/blog/conf_blog_freddy-f02d5c5f-a6a6-40c1-9aea-b54db1c3e5f0.png" width="100%" height="100%" *ngIf="!conferencia.image">
+      <img src="{{conferencia.image}}" width="100%" height="100%" *ngIf="conferencia.image">
+    <ion-card-header>
+      <ion-card-subtitle> {{conferencia.fecha}}</ion-card-subtitle>
+      <ion-card-title>{{conferencia.nombreCharla}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        {{conferencia.descripcion}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="tertiary" (click)="scan()">Scanear <br>
+    <ion-icon name="qr-scanner"></ion-icon>
+  </ion-button>
+</ion-footer>
